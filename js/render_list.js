@@ -1,5 +1,6 @@
-(async () => {
+const renderList = async () => {
   const target_container = document.querySelector("#to-do-list-container");
+  target_container.childNodes.forEach(item => item.remove());
   const to_do_list = [
     {
       id: 1,
@@ -31,4 +32,5 @@
     });
     target_container.innerHTML += newContent;
   });
-})();
+};
+
