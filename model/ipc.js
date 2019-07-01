@@ -1,32 +1,27 @@
 const { ipcMain } = require("electron");
-const Storage = require("./storage");
+const storage = require("./storage");
 
-ipcMain.on("list", async (event, _args) => {
-  const response = await Storage.allListItem();
+ipcMain.on("list", (event, _args) => {
+  const response = storage.allListItem();
   event.reply("list:response", response);
 });
 
-ipcMain.on("add", async (event, args) => {
-  const checkExistence = await Storage.existListItem("title");
-  if (checkExistence) {
-    await Storage.addListItem(
-      args.title,
-      args.description,
-      args.status,
-      args.due
-    );
+ipcMain.on("add", (event, args) => {
+  const checkExistence = storage.existListItem(args.title);
+  if (!checkExistence) {
+    storage.addListItem(args.title, args.description, args.status, args.due);
     event.reply("add:response", 1);
   } else {
-    event.reply("add:response", "Already Exists!");
+    event.reply("add:response", -1);
   }
 });
 
 ipcMain.on("delete", async (event, args) => {
-  await Storage.deleteListItem(args.title);
+  storage.deleteListItem(args.title);
   event.reply("delete:response", 1);
 });
 
 ipcMain.on("update_status", async (event, args) => {
-  await Storage.updateListItem(args.title, args.status);
+  storage.updateListItem(args.title, args.status);
   event.reply("update_status:response", 1);
 });

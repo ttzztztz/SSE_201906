@@ -1,9 +1,15 @@
-<div class="alert alert-$status" role="alert" data-id="$id">
+<div class="alert alert-$status" role="alert" data-id="$title">
   <h5>$title</h5>
   <hr />
   $description
   <hr />
-  <button type="button" class="btn btn-success">完成</button>
-  <button type="button" class="btn btn-danger">删除</button>
-  <button type="button" class="btn btn-secondary">放弃</button>
+  <button type="button" class="btn btn-success" onclick="finishTask('$title')">
+    完成
+  </button>
+  <button type="button" class="btn btn-danger" onclick="deleteTask('$title')">
+    删除
+  </button>
+  <button type="button" class="btn btn-secondary" onclick="abortTask('$title')">
+    放弃
+  </button>
 </div>

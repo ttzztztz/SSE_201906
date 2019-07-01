@@ -10,8 +10,6 @@
     },
     "dependencies": {
         "electron": "^5.0.6",
-        "electron-rebuild": "^1.8.5",
-        "immutable": "^4.0.0-rc.12",
-        "sql.js": "^1.0.0"
+        "immutable": "^4.0.0-rc.12"
     }
 }

@@ -2,12 +2,48 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>To do list</title>
+    <title>小目标 - 添加</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/add.css" />
   </head>
   <body>
     <div id="nav-bar-container"></div>
+    <div
+      class="modal fade"
+      id="err-model"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">添加失败</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            添加失败，当前计划已经在列表中！
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              好的
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <main>
       <div class="form-group row">
         <label for="title" class="col-sm-2 col-form-label col-form-label-sm"
