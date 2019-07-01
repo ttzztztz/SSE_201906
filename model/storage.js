@@ -1,4 +1,5 @@
 const fs = require("fs");
+const Immutable = require("immutable");
 
 class Storage {
   defaultFileContent = {
@@ -12,26 +13,43 @@ class Storage {
       }
     ]
   };
-
+  listMap = {};
   constructor() {
     try {
-      const buffer = fs.readFileSync("./database.json", {
-        encoding: "utf8"
-      });
-      this.db = JSON.parse(buffer.toString());
+      if (fs.existsSync("./database.json")) {
+        const buffer = fs.readFileSync("./database.json", {
+          encoding: "utf8"
+        });
+        this.db = JSON.parse(buffer.toString());
+      } else {
+        this.init();
+      }
     } catch (e) {
-      this.db = this.defaultFileContent;
-      this.save();
+      this.init();
+    } finally {
+      this.cacheList();
     }
   }
-
+  cacheList = () => {
+    this.listMap = this.db.list.reduce(
+      (p, obj) => ({
+        ...p,
+        [obj.title]: obj
+      }),
+      {}
+    );
+  };
+  init = () => {
+    this.db = this.defaultFileContent;
+    this.save();
+  };
   save = () => {
     fs.writeFileSync("./database.json", JSON.stringify(this.db));
   };
 
   existListItem = title => {
-    const resultArr = this.db.list.filter(item => item.title === title);
-    return resultArr && resultArr.length >= 1;
+    // O(1) optimization
+    return this.listMap && this.listMap[title];
   };
 
   addListItem = (title, description, status = 1, due) => {
