@@ -64,9 +64,9 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #dee2e6;
   text-align: left;
-  background-color: #fff;
+  background-color: #202020;
 }
 
 [tabindex="-1"]:focus {
@@ -525,8 +525,8 @@ a > code {
 kbd {
   padding: 0.2rem 0.4rem;
   font-size: 87.5%;
-  color: #fff;
-  background-color: #212529;
+  color: #dee2e6;
+  background-color: #202020;
   border-radius: 0.2rem;
 }
 
@@ -4330,19 +4330,19 @@ tbody.collapse.show {
 }
 
 .navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9);
+  color: #dee2e6;
 }
 
 .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
-  color: rgba(0, 0, 0, 0.9);
+  color: #dee2e6;
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(0, 0, 0, 0.5);
+  color: #dee2e6;
 }
 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
-  color: rgba(0, 0, 0, 0.7);
+  color: #dee2e6;
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
@@ -4977,9 +4977,11 @@ tbody.collapse.show {
 }
 
 .alert-primary {
-  color: #004085;
-  background-color: #cce5ff;
-  border-color: #b8daff;
+  color: #343a40;
+  background-color: #e9ecef;
+  border-color: #9eafc2;
+  border-width: 3px;
+
 }
 
 .alert-primary hr {
@@ -6135,7 +6137,7 @@ button.bg-danger:focus {
 }
 
 .bg-light {
-  background-color: #f8f9fa !important;
+  background-color:#2a2a2a !important;
 }
 
 a.bg-light:hover, a.bg-light:focus,
