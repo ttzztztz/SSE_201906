@@ -1,0 +1,20 @@
+body {
+    background: #202020;
+    color:#dee2e6;
+}
+.bg-light{
+    background-color: #2e2e2e !important;
+}
+.navbar-light .navbar-brand {
+    color: #dee2e6;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #dee2e6 !important;
+} 
+.alert-primary {
+    border-style: groove;
+    color: #343a40;
+    background-color: #dee2e6;
+    border-color: #f8f9fa;
+    border-width: 5px;
+}
