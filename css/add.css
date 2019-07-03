@@ -2,6 +2,6 @@
   text-align: center;
 }
 main {
-  width: 70%;
-  margin: 12px 235px;
+  width: 65%;
+  margin: 24px calc((50% - 10px)/2);
 }
