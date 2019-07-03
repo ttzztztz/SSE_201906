@@ -18,3 +18,6 @@ body {
     border-color: #f8f9fa;
     border-width: 5px;
 }
+.nav-bar-link:hover {
+    color: white !important;
+}
