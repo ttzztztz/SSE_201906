@@ -30,9 +30,14 @@ ipcRenderer.on("list:response", async (_event, args) => {
   await renderList(args);
 });
 ipcRenderer.on("delete:response", async (_event, args) => {
-  ipcRenderer.send("list");
+  ipcRenderer.send("list", window.location.hash);
 });
 ipcRenderer.on("update_status:response", async (_event, args) => {
-  ipcRenderer.send("list");
+  ipcRenderer.send("list", window.location.hash);
 });
-window.addEventListener("load", () => ipcRenderer.send("list"));
+window.addEventListener("load", () =>
+  ipcRenderer.send("list", window.location.hash)
+);
+window.addEventListener("hashchange", () =>
+  ipcRenderer.send("list", window.location.hash)
+);

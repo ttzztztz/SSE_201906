@@ -1,8 +1,8 @@
 class StatusConverter {
   static numberToStatus = {
-    "1": "primary",
+    "1": "secondary",
     "2": "success",
-    "3": "danger"
+    "3": "secondary"
   };
   static statusToNumber = Object.entries(this.numberToStatus).reduce(
     (p, [k, v]) => ({

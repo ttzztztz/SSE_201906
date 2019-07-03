@@ -1,5 +1,4 @@
 const fs = require("fs");
-const Immutable = require("immutable");
 
 class Storage {
   defaultFileContent = {
@@ -77,8 +76,18 @@ class Storage {
     this.save();
   };
 
-  allListItem = () => {
-    const result = this.db.list.sort(($1, $2) => $1.due > $2.due);
+  allListItem = type => {
+    let result = [];
+    const relationReflection = {
+      finished: item => item.status === 2,
+      unfinished: item => item.status === 1 || item.status === 3
+    };
+    if (type === "all") {
+      result = this.db.list;
+    } else {
+      result = this.db.list.filter(relationReflection[type]);
+    }
+    result.sort(($1, $2) => $1.due > $2.due);
     return result;
   };
 }

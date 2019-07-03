@@ -1,34 +1,55 @@
 body {
-    background: #202020;
-    color:#dee2e6;
+  background: #202020;
+  color: #dee2e6;
 }
-.bg-light{
-    background-color: #2e2e2e !important;
+.bg-light {
+  background-color: #2e2e2e !important;
 }
 .navbar-light .navbar-brand {
-    color: #dee2e6;
+  color: #dee2e6 !important;
 }
-.navbar-light .navbar-nav .nav-link {
-    color: #dee2e6 !important;
-} 
-.alert-primary {
-    border-style: groove;
-    color: #343a40;
-    background-color: #dee2e6;
-    border-color: #f8f9fa;
-    border-width: 5px;
+.nav-link {
+  color: #dee2e6 !important;
 }
-#addpic img
-{
-    display: inline-block;
-    margin-bottom: 0.8em;
-    margin-right: 0.5em;
-    border-radius: 50%;
-    position: fixed;
-    right: 0px;
-    bottom: -5px;
-    border-style: solid;
-    border-color: #6c757d;
-    border-width: 2px;
+.nav-bar-link:hover {
+  color: white !important;
 }
-    
+/* .alert-primary {
+  border-style: groove;
+  color: #343a40;
+  background-color: #dee2e6;
+  border-color: #f8f9fa;
+  border-width: 5px;
+} */
+#addpic img {
+  display: inline-block;
+  margin-bottom: 0.8em;
+  margin-right: 0.5em;
+  border-radius: 50%;
+  position: fixed;
+  right: 0px;
+  bottom: -5px;
+  border-style: solid;
+  border-color: #6c757d;
+  border-width: 2px;
+}
+.navbar-nav {
+  height: 100%;
+}
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100px;
+  padding: 3px 0 0 6px;
+}
+.nav-link:hover {
+  color: cyan !important;
+}
+.navbar-brand {
+  margin-bottom: 24px;
+}
+.nav-active {
+  color: dodgerblue !important;
+}

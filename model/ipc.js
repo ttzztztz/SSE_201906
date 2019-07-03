@@ -1,8 +1,10 @@
 const { ipcMain } = require("electron");
 const storage = require("./storage");
 
-ipcMain.on("list", (event, _args) => {
-  const response = storage.allListItem();
+ipcMain.on("list", (event, args) => {
+  const requestType = (args || "#all").replace("#", "");
+
+  const response = storage.allListItem(requestType);
   event.reply("list:response", response);
 });
 
