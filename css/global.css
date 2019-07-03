@@ -18,3 +18,18 @@ body {
     border-color: #f8f9fa;
     border-width: 5px;
 }
+#addpic img
+{
+    display: inline-block;
+    margin-bottom: 0.8em;
+    margin-right: 0.5em;
+    border-radius: 50%;
+    position: fixed;
+    right: 0px;
+    bottom: -5px;
+    border-style: solid;
+    border-color: #6c757d;
+    border-width: 2px;
+}
+    
+}
