@@ -8,11 +8,11 @@ class Storage {
         title: "吃饭",
         description: "该吃饭了",
         status: 1,
-        due: (new Date().getTime() / 1000 + 1000) | 0
+        importance: 1
       }
-    ]
+    ],
+    credits: 0
   };
-  listMap = {};
   constructor() {
     try {
       if (fs.existsSync("./database.json")) {
@@ -25,19 +25,8 @@ class Storage {
       }
     } catch (e) {
       this.init();
-    } finally {
-      this.cacheList();
     }
   }
-  cacheList = () => {
-    this.listMap = this.db.list.reduce(
-      (p, obj) => ({
-        ...p,
-        [obj.title]: obj
-      }),
-      {}
-    );
-  };
   init = () => {
     this.db = this.defaultFileContent;
     this.save();
@@ -47,17 +36,16 @@ class Storage {
   };
 
   existListItem = title => {
-    // O(1) optimization
-    return this.listMap && this.listMap[title];
+    return this.db.list && this.db.list.some(item => item.title === title);
   };
 
-  addListItem = (title, description, status = 1, due) => {
+  addListItem = (title, description, status = 1, importance) => {
     this.db.list.push({
       time: (new Date().getTime() / 1000) | 0,
       title,
       description,
       status,
-      due
+      importance
     });
     this.save();
   };
@@ -87,8 +75,16 @@ class Storage {
     } else {
       result = this.db.list.filter(relationReflection[type]);
     }
-    result.sort(($1, $2) => $1.due > $2.due);
-    return result;
+    const answer = result.sort(($1, $2) => $2.importance - $1.importance);
+    return answer;
+  };
+
+  addCredits = num => {
+    this.db.credits += num;
+    this.save();
+  };
+  getCredits = () => {
+    return this.db.credits;
   };
 }
 

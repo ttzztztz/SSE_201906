@@ -1,127 +1,76 @@
 <!DOCTYPE html>
 <html>
-    <head>
+  <head>
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/add.css" />
     <link rel="stylesheet" href="./css/global.css" />
-        <title>
-            time
-        </title>
-        <meta charset="utf-8">        
-        <script>
-        function countTime(){
-            var min=25,second=1;
-            var timer=setInterval(function(){
-                if(second==0){
-                        second=60;
-                        min--;
-                    }second--;
-           document.querySelector("#textStyle").innerHTML = min + ":" + second;
-           document.querySelector("#textStyle").classList.add("TextStyle");
-           document.querySelector(".buttonStyle").style.display="none";
-           document.querySelector("#text").style.display="none";
+    <title>
+      Goals - POMODORO
+    </title>
+    <meta charset="utf-8" />
+    <style>
+      .TextStyle {
+        display: inline;
+        color: #d1d2d4;
+        position: relative;
+        left: 300px;
+        top: 160px;
+        font-size: 100px;
+      }
+      .buttonStyle {
+        display: block;
+        position: relative;
+        left: 400px;
+        top: 200px;
+        background-color: #d1d2d4;
+        /* border: none; */
+        /* color: #6c757d; */
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav-bar-container"></div>
+    <div id="textStyle"></div>
+    <button class="buttonStyle btn btn-outline-primary" onclick="countTime()">
+      Start
+    </button>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/render_navbar.js"></script>
+    <script>
+      const textStyleDOM = document.querySelector("#textStyle");
+      const buttonStyleDOM = document.querySelector(".buttonStyle");
+      const checkTime = (m, s) => {
+        return m == 0 && s == 0;
+      };
+      const renderTime = x => (x < 10 ? "0" + x : x.toString());
+      function countTime() {
+        let min = 0,
+          second = 10;
+        const timer = setInterval(() => {
+          if (second == 0) {
+            second = 60;
+            min--;
+          }
+          second--;
 
+          textStyleDOM.innerHTML = renderTime(min) + ":" + renderTime(second);
+          textStyleDOM.classList.add("TextStyle");
+          buttonStyleDOM.style.display = "none";
 
-            
-                    
-                if(checkTime(min,second)){
-                    clearInterval(timer);
-                    alert("倒计时结束");
-                }
-                    
-                    
-                
-            },1000);
-            
-            
-        }
-        
-        function checkTime(m,s){
-            if(m==0&&s==0){
-                return true;
-            }else return false;
-        }
-        </script>
-        <style>
-            .TextStyle{
-                display: block;
-                color: #d1d2d4;
-                position: relative;
-                left: 300px;
-                top: 160px;
-                font-size: 100px;
-            }
-
-
-
-                .buttonStyle {
-                    display: block;
-                    position: relative;
-                    left: 400px;
-                    top: 180px;
-                    background-color: #d1d2d4;
-                    border-width:2px;
-                    border-color: white;
-                    color: #6c757d;
-                    padding: 8px 15px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 30px;
-                    margin: 4px 2px;
-                    cursor: pointer;
-                }
-                #text{
-                    border-style: solid;
-                    border-width:medium;
-                    width:500px;
-                    position:relative;
-                    left:200px;
-                    top:50px;
-                    font-family: 'Source Sans Pro', sans-serif;
-                    font-size: 12pt;
-                    padding: 8px 15px;
-                }
-                .pomoimg img{
-                    display: inline-block;
-                    margin-bottom: 0.8em;
-                    margin-right: 0.5em;
-                    position: fixed;
-                    right: 20px;
-                    bottom: -5px;
-                    width: 100px;
-                    height:90px;
-                    
-                   }
-
-
-
-                </style>
-    </head>
-    <body onload="countTime">
-        <div class="pomoimg">
-            <img src="./pomodoro.png" alt="">
-        </div>
-            
-        
-        <div id="text">
-            <p>The<b style="color: red"> Pomodoro Technique </b>is a time management method developed by Francesco Cirillo in the late 1980s.
-                The technique uses a timer to <b style="color: red">break down work into intervals</b>, 
-                traditionally <b style="color: red">25 minutes</b> in length,
-                 separated by short breaks. 
-                 Each interval is known as a pomodoro, 
-                 from the Italian word for 'tomato',
-                  after the tomato-shaped kitchen timer that Cirillo used as a university student.
-                </p></br>
-                <p style="text-align: center;font-size: large"><b>Press the button to start your work!</b></p>
-        </div>
-        
-        <div id="nav-bar-container"></div>
-        <div id="textStyle"></div>
-        <input type="button" class="buttonStyle" onclick="countTime()" value="START">
-        <script src="./js/jquery.min.js"></script>
-        <script src="./js/bootstrap.min.js"></script>
-        <script src="./js/render_navbar.js"></script>
-        <script src="./js/ipc_add.js"></script>
-    </body>
+          if (checkTime(min, second)) {
+            clearInterval(timer);
+            setTimeout(() => alert("倒计时结束！"), 0);
+          }
+        }, 1000);
+      }
+    </script>
+  </body>
 </html>

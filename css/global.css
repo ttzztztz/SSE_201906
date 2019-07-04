@@ -14,13 +14,6 @@ body {
 .nav-bar-link:hover {
   color: white !important;
 }
-/* .alert-primary {
-  border-style: groove;
-  color: #343a40;
-  background-color: #dee2e6;
-  border-color: #f8f9fa;
-  border-width: 5px;
-} */
 #addpic img {
   display: inline-block;
   margin-bottom: 0.8em;
@@ -59,6 +52,7 @@ body {
 }
 .navbar-brand {
   margin-bottom: 24px;
+  margin-left: 16px;
 }
 .nav-active {
   color: white !important;
@@ -84,4 +78,7 @@ body {
   color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
+}
+.modal.show .modal-dialog {
+  color: black;
 }

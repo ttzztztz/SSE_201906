@@ -1,22 +1,11 @@
 const handleRouterChange = () => {
-  // document
-  //   .querySelectorAll(`.nav-link`)
-  //   .forEach(item => item.classList.remove('nav-active'));
-
-  // const target = document.querySelector(
-  //   `.nav-link[data-active='${window.location.hash || "#all"}']`
-  // );
-  // if (target) {
-  //   target.classList.add('nav-active');
-  // }
-
   const hash = window.location.hash || "#all";
   const hashReflection = {
-    "#all": "全部列表",
-    "#finished": "已完成",
-    "#unfinished": "待完成"
+    "#all": "ALL",
+    "#finished": "DONE",
+    "#unfinished": "UNDO"
   };
-  document.title = hashReflection[hash] + " - 小目标";
+  document.title = "Goals - " + hashReflection[hash];
 };
 
 window.addEventListener("load", () => handleRouterChange());

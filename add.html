@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>小目标 - 添加</title>
+    <title>Goals - Add</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/add.css" />
     <link rel="stylesheet" href="./css/global.css" />
@@ -20,7 +20,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">添加失败</h5>
+            <h5 class="modal-title">Failed</h5>
             <button
               type="button"
               class="close"
@@ -31,7 +31,7 @@
             </button>
           </div>
           <div class="modal-body">
-            添加失败，当前计划已经在列表中！
+            Current goals already exists.
           </div>
           <div class="modal-footer">
             <button
@@ -39,7 +39,7 @@
               class="btn btn-secondary"
               data-dismiss="modal"
             >
-              好的
+              OK
             </button>
           </div>
         </div>
@@ -47,10 +47,10 @@
     </div>
     <main>
       <div class="form-group row">
-        <label for="title" class="col-sm-2 col-form-label col-form-label-sm"
+        <label for="title" class="col-sm-3 col-form-label col-form-label-sm"
           >Title</label
         >
-        <div class="col-sm-10">
+        <div class="col-sm-9">
           <input
             class="form-control form-control-sm"
             placeholder="Title"
@@ -61,11 +61,27 @@
       </div>
       <div class="form-group row">
         <label
+          for="importance"
+          class="col-sm-3 col-form-label col-form-label-sm"
+          >Importance</label
+        >
+        <div class="col-sm-9">
+          <select name="importance" id="importance" class="form-control">
+            <option value="5">Very Important</option>
+            <option value="4">Important</option>
+            <option value="3">Medium</option>
+            <option value="2">Unimportant</option>
+            <option value="1">Very Unimportant</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label
           for="description"
-          class="col-sm-2 col-form-label col-form-label-sm"
+          class="col-sm-3 col-form-label col-form-label-sm"
           >Description</label
         >
-        <div class="col-sm-10">
+        <div class="col-sm-9">
           <textarea
             class="form-control form-control-sm"
             placeholder="Description"
