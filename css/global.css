@@ -33,6 +33,11 @@ body {
   border-color: #6c757d;
   border-width: 2px;
 }
+
+#addpic img:hover,#addpic img:active{
+  border-width: 4px;
+}
+
 .navbar-nav {
   height: 100%;
 }
@@ -41,15 +46,42 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  width: 100px;
-  padding: 3px 0 0 6px;
+  width: 120px;
+  text-align: center;
 }
 .nav-link:hover {
-  color: cyan !important;
+  color: white !important;
+  background-color: #2980b9;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+
 }
 .navbar-brand {
   margin-bottom: 24px;
 }
 .nav-active {
-  color: dodgerblue !important;
+  color: white !important;
+}
+
+.alert-success {
+  color: #dee2e6 !important;
+  background-color: #286eb5 !important;
+  border-color: #0e2b48;
+}
+.alert-secondary {
+  color: #6c757d;
+  background-color: #495057;
+  border-color: #d6d8db;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+.btn-success {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
 }
