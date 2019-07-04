@@ -12,7 +12,6 @@ class Storage {
       }
     ]
   };
-  listMap = {};
   constructor() {
     try {
       if (fs.existsSync("./database.json")) {
@@ -25,19 +24,8 @@ class Storage {
       }
     } catch (e) {
       this.init();
-    } finally {
-      this.cacheList();
     }
   }
-  cacheList = () => {
-    this.listMap = this.db.list.reduce(
-      (p, obj) => ({
-        ...p,
-        [obj.title]: obj
-      }),
-      {}
-    );
-  };
   init = () => {
     this.db = this.defaultFileContent;
     this.save();
@@ -47,8 +35,7 @@ class Storage {
   };
 
   existListItem = title => {
-    // O(1) optimization
-    return this.listMap && this.listMap[title];
+    return this.db.list && this.db.list.some(item => item.title === title);
   };
 
   addListItem = (title, description, status = 1, importance) => {

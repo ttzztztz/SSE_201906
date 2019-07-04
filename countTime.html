@@ -50,6 +50,7 @@
       const checkTime = (m, s) => {
         return m == 0 && s == 0;
       };
+      const renderTime = x => (x < 10 ? "0" + x : x.toString());
       function countTime() {
         let min = 0,
           second = 10;
@@ -59,13 +60,14 @@
             min--;
           }
           second--;
-          textStyleDOM.innerHTML = min + ":" + second;
+
+          textStyleDOM.innerHTML = renderTime(min) + ":" + renderTime(second);
           textStyleDOM.classList.add("TextStyle");
           buttonStyleDOM.style.display = "none";
 
           if (checkTime(min, second)) {
             clearInterval(timer);
-            setTimeout(() => alert("倒计时结束"), 0);
+            setTimeout(() => alert("倒计时结束！"), 0);
           }
         }, 1000);
       }
