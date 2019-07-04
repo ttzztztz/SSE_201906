@@ -79,3 +79,6 @@ body {
   background-color: #6c757d;
   border-color: #6c757d;
 }
+.modal.show .modal-dialog {
+  color: black;
+}
