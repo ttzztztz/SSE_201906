@@ -10,7 +10,8 @@ class Storage {
         status: 1,
         importance: 1
       }
-    ]
+    ],
+    credits: 0
   };
   constructor() {
     try {
@@ -76,6 +77,14 @@ class Storage {
     }
     const answer = result.sort(($1, $2) => $2.importance - $1.importance);
     return answer;
+  };
+
+  addCredits = num => {
+    this.db.credits += num;
+    this.save();
+  };
+  getCredits = () => {
+    return this.db.credits;
   };
 }
 
