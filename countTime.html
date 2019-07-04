@@ -1,81 +1,74 @@
 <!DOCTYPE html>
 <html>
-    <head>
+  <head>
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/add.css" />
     <link rel="stylesheet" href="./css/global.css" />
-        <title>
-            time
-        </title>
-        <meta charset="utf-8">        
-        <script>
-        function countTime(){
-            var min=0,second=10;
-            var timer=setInterval(function(){
-                if(second==0){
-                        second=60;
-                        min--;
-                    }second--;
-           document.querySelector("#textStyle").innerHTML = min + ":" + second;
-           document.querySelector("#textStyle").classList.add("TextStyle");
-           document.querySelector(".buttonStyle").style.display="none";
+    <title>
+      番茄钟
+    </title>
+    <meta charset="utf-8" />
+    <style>
+      .TextStyle {
+        display: inline;
+        color: #d1d2d4;
+        position: relative;
+        left: 300px;
+        top: 160px;
+        font-size: 100px;
+      }
+      .buttonStyle {
+        display: block;
+        position: relative;
+        left: 400px;
+        top: 200px;
+        background-color: #d1d2d4;
+        /* border: none; */
+        /* color: #6c757d; */
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav-bar-container"></div>
+    <div id="textStyle"></div>
+    <button class="buttonStyle btn btn-outline-primary" onclick="countTime()">
+      开始
+    </button>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/render_navbar.js"></script>
+    <script>
+      const textStyleDOM = document.querySelector("#textStyle");
+      const buttonStyleDOM = document.querySelector(".buttonStyle");
+      const checkTime = (m, s) => {
+        return m == 0 && s == 0;
+      };
+      function countTime() {
+        let min = 0,
+          second = 10;
+        const timer = setInterval(() => {
+          if (second == 0) {
+            second = 60;
+            min--;
+          }
+          second--;
+          textStyleDOM.innerHTML = min + ":" + second;
+          textStyleDOM.classList.add("TextStyle");
+          buttonStyleDOM.style.display = "none";
 
-            
-                    
-                if(checkTime(min,second)){
-                    clearInterval(timer);
-                    alert("倒计时结束");
-                }
-                    
-                    
-                
-            },1000);
-            
-            
-        }
-        
-        function checkTime(m,s){
-            if(m==0&&s==0){
-                return true;
-            }else return false;
-        }
-        </script>
-        <style>
-            .TextStyle{
-                display: block;
-                color: #d1d2d4;
-                position: relative;
-                left: 300px;
-                top: 160px;
-                font-size: 100px;
-            }
-
-
-                .buttonStyle {
-                    display: block;
-                    position: relative;
-                    left: 400px;
-                    top: 200px;
-                    background-color: #d1d2d4;
-                    border: none;
-                    color: #6c757d;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 16px;
-                    margin: 4px 2px;
-                    cursor: pointer;
-                }
-                </style>
-    </head>
-    <body onload="countTime"> 
-        <div id="nav-bar-container"></div>
-        <div id="textStyle"></div>
-        <input type="button" class="buttonStyle" onclick="countTime()" value="开始">
-        <script src="./js/jquery.min.js"></script>
-        <script src="./js/bootstrap.min.js"></script>
-        <script src="./js/render_navbar.js"></script>
-        <script src="./js/ipc_add.js"></script>
-    </body>
+          if (checkTime(min, second)) {
+            clearInterval(timer);
+            setTimeout(() => alert("倒计时结束"), 0);
+          }
+        }, 1000);
+      }
+    </script>
+  </body>
 </html>

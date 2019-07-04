@@ -11,7 +11,7 @@ ipcMain.on("list", (event, args) => {
 ipcMain.on("add", (event, args) => {
   const checkExistence = storage.existListItem(args.title);
   if (!checkExistence) {
-    storage.addListItem(args.title, args.description, args.status, args.due);
+    storage.addListItem(args.title, args.description, args.status, args.importance);
     event.reply("add:response", 1);
   } else {
     event.reply("add:response", -1);
