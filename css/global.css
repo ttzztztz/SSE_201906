@@ -1,4 +1,4 @@
-body {
+/*body {
   background: #202020;
   color: #dee2e6;
 }
@@ -13,7 +13,7 @@ body {
 }
 .nav-bar-link:hover {
   color: white !important;
-}
+}*/
 #addpic img {
   display: inline-block;
   margin-bottom: 0.8em;
@@ -34,14 +34,14 @@ body {
 .navbar-nav {
   height: 100%;
 }
-.nav-bar {
+/*.nav-bar {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 120px;
   text-align: center;
-}
+}*/
 .nav-link:hover {
   color: white !important;
   background-color: #2980b9;
