@@ -1,7 +1,7 @@
-/*body {
-  background: #202020;
-  color: #dee2e6;
-}
+body {
+  background: #ecf1f6;
+
+}/*
 .bg-light {
   background-color: #2e2e2e !important;
 }
@@ -40,6 +40,10 @@
 }
 .nav-link {
   padding: 6px 4px !important;
+
+  color:white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 12pt;
 }
 .nav-left {
   position: fixed;
@@ -59,7 +63,7 @@
   color: white !important;
   background-color: #2980b9;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 12pt;
+  font-size: 13pt;
   font-weight: bold;
 }
 .navbar-brand {
@@ -69,26 +73,36 @@
 .nav-active {
   color: white !important;
 }
+.alert{
+  position: relative;
+  left:-60px;
+}
 
 .alert-success {
-  color: #dee2e6 !important;
-  background-color: #286eb5 !important;
+  color: black;
+  background-color:#dee2e6 !important;
   border-color: #0e2b48;
 }
 .alert-secondary {
-  color: #6c757d;
+  color: #e9ecef;
   background-color: #495057;
   border-color: #d6d8db;
 }
 
 .btn-danger {
   color: #fff;
-  background-color: #6c757d;
+  background-color: #713333;
   border-color: #6c757d;
 }
+
+.btn-success:hover{
+  background-color: #3771a7 !important;
+  border-color: #6c757d;
+}
+
 .btn-success {
   color: #fff;
-  background-color: #6c757d;
+  background-color: #2e4e6b;
   border-color: #6c757d;
 }
 .modal.show .modal-dialog {
