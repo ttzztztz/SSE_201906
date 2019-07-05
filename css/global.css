@@ -27,12 +27,25 @@
   border-width: 2px;
 }
 
-#addpic img:hover,#addpic img:active{
+#addpic img:hover,
+#addpic img:active {
   border-width: 4px;
 }
 
 .navbar-nav {
-  height: 100%;
+  /* height: 100%; */
+  display: grid;
+  grid-template-columns: 33% 33% 34%;
+  text-align: center;
+}
+.nav-link {
+  padding: 6px 4px !important;
+}
+.nav-left {
+  position: fixed;
+  left: 0;
+  width: 64px;
+  text-align: center;
 }
 /*.nav-bar {
   position: fixed;
@@ -45,10 +58,9 @@
 .nav-link:hover {
   color: white !important;
   background-color: #2980b9;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 12pt;
   font-weight: bold;
-
 }
 .navbar-brand {
   margin-bottom: 24px;
