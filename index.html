@@ -1,26 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Goals - List</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/global.css" />
-  </head>
-  <body>
-    <div id="nav-bar-container"></div>
-    <main>
-      <div id="to-do-list-container"></div>
-      <div id="addpic">
-        <a href="./add.html"><img src="./addpic.jpg" alt=""></a>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Goals - List</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/global.css" />
+</head>
+
+<body>
+  <div id="nav-bar-container"></div>
+  <main>
+    <div id="to-do-list-container"></div>
+    <div class="modal fade" id="encourage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Are you sure to abandon it?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            some encouraged words
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Quit
+            </button>
+            <button id="abandonSubmit" type="button" class="btn btn-primary" data-dismiss="modal"
+              onclick="">Abandon</button>
+          </div>
+        </div>
       </div>
-    </main>
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./renderer.js"></script>
-    <script src="./js/render_navbar.js"></script>
-    <script src="./js/render_list.js"></script>
-    <script src="./js/list_operation.js"></script>
-    <script src="./js/router_render.js"></script>
-  </body>
+    </div>
+    <div id="addpic">
+      <a href="./add.html"><img src="./addpic.jpg" alt=""></a>
+    </div>
+  </main>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./renderer.js"></script>
+  <script src="./js/render_navbar.js"></script>
+  <script src="./js/render_list.js"></script>
+  <script src="./js/list_operation.js"></script>
+  <script src="./js/router_render.js"></script>
+</body>
+
 </html>

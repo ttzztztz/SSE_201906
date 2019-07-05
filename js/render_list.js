@@ -1,6 +1,9 @@
 const { ipcRenderer } = require("electron");
 const StatusConverter = require("./js/statusConverter.js");
 
+const abandonSubmitDOM = document.querySelector("#abandonSubmit");
+let nowTitle = "";
+
 const renderList = async args => {
   const target_container = document.querySelector("#to-do-list-container");
 
@@ -24,6 +27,8 @@ const renderList = async args => {
     });
     target_container.innerHTML += newContent;
   });
+
+  document.querySelectorAll('button[data-active="abandon-btn"]').forEach(item => item.addEventListener('click', () => nowTitle = item.dataset.title))
 };
 
 ipcRenderer.on("list:response", async (_event, args) => {
@@ -41,3 +46,5 @@ window.addEventListener("load", () =>
 window.addEventListener("hashchange", () =>
   ipcRenderer.send("list", window.location.hash)
 );
+
+abandonSubmitDOM.addEventListener('click', () => abortTask(nowTitle));
