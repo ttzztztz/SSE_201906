@@ -1,0 +1,40 @@
+.Title1 {
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 130px;
+  font-weight: bold;
+}
+.Title1:hover {
+  color: #dee2e6;
+}
+.Title2:hover {
+  color: #dee2e6;
+}
+.Title2 {
+  color: white;
+  font-family: "Helvetica", "Courier New", Courier, monospace;
+  font-size: 100px;
+}
+.Title1,
+.Title2 {
+  text-align: center;
+}
+.button {
+  background-color: #597e9e;
+  color: white;
+  border-style: solid;
+  text-align: center;
+  padding: 10px 28px;
+}
+.button:hover {
+  background-color: #136494;
+}
+body {
+  background: url("../bkimg1.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.input-container{
+    padding:0 10%;
+}

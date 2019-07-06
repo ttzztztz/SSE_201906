@@ -35,7 +35,6 @@ ipcMain.on("update_status", async (event, args) => {
 
 ipcMain.on("get_credits", async (event, _args) => {
   const response = storage.getCredits();
-  console.log(response);
   event.reply("get_credits:response", response);
 });
 
