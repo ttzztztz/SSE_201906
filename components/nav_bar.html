@@ -1,7 +1,7 @@
 <div class="pos-f-t">
   <div class="collapse bg-dark" id="navbarToggleExternalContent">
     <div id="toggle-container">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav" id="nav_ul">
         <li class="nav-item">
           <a class="nav-link" href="./my.html">MY</a>
         </li>
@@ -17,46 +17,39 @@
             LIST
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="./index.html#all" data-active="#all"
+            <a class="dropdown-item" href="./index.html#all" data-filter="all"
               >ALL</a
             >
             <a
               class="dropdown-item"
               href="./index.html#finished"
-              data-active="#finished"
+              data-filter="finished"
               >DONE</a
             >
             <a
               class="dropdown-item"
               href="./index.html#unfinished"
-              data-active="#unfinished"
+              data-filter="unfinished"
               >UNDO</a
             >
+            <div class="dropdown-divider"></div>
+            <a
+              class="dropdown-item"
+              href="./index.html#all_group"
+              data-group="all"
+              >ALL GROUP</a
+            >
+            <div id="group_list_container"></div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="./addGroup.html">Add Group</a>
           </div>
         </li>
-        <!--<li class="nav-item" id="nav-item-finished">
-        <a class="nav-link" href="./index.html#finished" data-active="#finished">DONE</a>
-      </li>
-      <li class="nav-item" id="nav-item-wait">
-        <a class="nav-link" href="./index.html#unfinished" data-active="#unfinished">UNDO</a>
-      </li> -->
         <li class="nav-item">
           <a class="nav-link" href="./countTime.html">POMODORO</a>
         </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            LIST
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="./index.html#all" data-active="#all">ALL</a>
-            <a class="dropdown-item" href="./index.html#finished" data-active="#finished">DONE</a>
-            <a class="dropdown-item" href="./index.html#unfinished" data-active="#unfinished">UNDO</a>
-          </div>
-        </li>-->
       </ul>
     </div>
   </div>
-
   <nav class="navbar navbar-dark bg-dark">
     <button
       class="navbar-toggler"

@@ -1,12 +1,23 @@
-const handleRouterChange = () => {
-  const hash = window.location.hash || "#all";
-  const hashReflection = {
-    "#all": "ALL",
-    "#finished": "DONE",
-    "#unfinished": "UNDO"
-  };
-  document.title = "Goals - " + hashReflection[hash];
+const { ipcRenderer: stateIpcRender } = require("electron");
+
+const handleStateChange = () => {
+  const { filter, group } = JSON.parse(localStorage.getItem("state"));
+  const state = { filter, group };
+
+  stateIpcRender.send("group_name", group);
+  stateIpcRender.send("list", state);
 };
 
-window.addEventListener("load", () => handleRouterChange());
-window.addEventListener("hashchange", () => handleRouterChange());
+stateIpcRender.on("group_name:response", async (_event, args) => {
+  const { filter } = JSON.parse(localStorage.getItem("state"));
+
+  const stateReflection = {
+    all: "ALL",
+    finished: "DONE",
+    unfinished: "UNDO"
+  };
+
+  document.title = "Goals - " + args + " - " + stateReflection[filter];
+});
+
+window.addEventListener("load", () => handleStateChange());

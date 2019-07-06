@@ -1,19 +1,6 @@
 body {
   background: #ecf1f6;
-
-}/*
-.bg-light {
-  background-color: #2e2e2e !important;
 }
-.navbar-light .navbar-brand {
-  color: #dee2e6 !important;
-}
-.nav-link {
-  color: #dee2e6 !important;
-}
-.nav-bar-link:hover {
-  color: white !important;
-}*/
 #addpic img {
   display: inline-block;
   margin-bottom: 0.8em;
@@ -40,8 +27,7 @@ body {
 }
 .nav-link {
   padding: 6px 4px !important;
-
-  color:white;
+  color: white;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 12pt;
 }
@@ -51,14 +37,6 @@ body {
   width: 64px;
   text-align: center;
 }
-/*.nav-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 120px;
-  text-align: center;
-}*/
 .nav-link:hover {
   color: white !important;
   background-color: #2980b9;
@@ -73,14 +51,14 @@ body {
 .nav-active {
   color: white !important;
 }
-.alert{
+.alert {
   position: relative;
-  left:-60px;
+  left: -60px;
 }
 
 .alert-success {
   color: black;
-  background-color:#dee2e6 !important;
+  background-color: #dee2e6 !important;
   border-color: #0e2b48;
 }
 .alert-secondary {
@@ -95,7 +73,7 @@ body {
   border-color: #6c757d;
 }
 
-.btn-success:hover{
+.btn-success:hover {
   background-color: #3771a7 !important;
   border-color: #6c757d;
 }
@@ -107,4 +85,12 @@ body {
 }
 .modal.show .modal-dialog {
   color: black;
+}
+.group-item {
+  cursor: pointer;
+}
+.finished_tag{
+  position: absolute;
+  right: 24px;
+  top: 12px;
 }

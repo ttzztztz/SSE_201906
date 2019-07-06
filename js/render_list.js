@@ -25,26 +25,35 @@ const renderList = async args => {
       const regExp = new RegExp(`\\\$${k}`, "g");
       newContent = newContent.replace(regExp, v);
     });
+    if (item.status === "success") {
+      newContent = newContent.replace(new RegExp(`\\\$DONE`, "g"), "DONE");
+    } else {
+      newContent = newContent.replace(new RegExp(`\\\$DONE`, "g"), "");
+    }
     target_container.innerHTML += newContent;
   });
 
-  document.querySelectorAll('button[data-active="abandon-btn"]').forEach(item => item.addEventListener('click', () => nowTitle = item.dataset.title))
+  document
+    .querySelectorAll('button[data-active="abandon-btn"]')
+    .forEach(item =>
+      item.addEventListener("click", () => (nowTitle = item.dataset.title))
+    );
 };
 
 ipcRenderer.on("list:response", async (_event, args) => {
   await renderList(args);
 });
-ipcRenderer.on("delete:response", async (_event, args) => {
-  ipcRenderer.send("list", window.location.hash);
-});
-ipcRenderer.on("update_status:response", async (_event, args) => {
-  ipcRenderer.send("list", window.location.hash);
-});
-window.addEventListener("load", () =>
-  ipcRenderer.send("list", window.location.hash)
+ipcRenderer.on("delete:response", async (_event, args) =>
+  ipcRenderer.send("list", JSON.parse(localStorage.getItem("state")))
 );
+ipcRenderer.on("update_status:response", async (_event, args) =>
+  ipcRenderer.send("list", JSON.parse(localStorage.getItem("state")))
+);
+// window.addEventListener("load", () =>
+//   ipcRenderer.send("list", JSON.parse(localStorage.getItem("state")))
+// );
 window.addEventListener("hashchange", () =>
-  ipcRenderer.send("list", window.location.hash)
+  ipcRenderer.send("list", JSON.parse(localStorage.getItem("state")))
 );
 
-abandonSubmitDOM.addEventListener('click', () => abortTask(nowTitle));
+abandonSubmitDOM.addEventListener("click", () => abortTask(nowTitle));

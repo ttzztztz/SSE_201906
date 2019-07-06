@@ -8,10 +8,18 @@ class Storage {
         title: "吃饭",
         description: "该吃饭了",
         status: 1,
-        importance: 1
+        importance: 1,
+        group: 0
       }
     ],
-    credits: 0
+    group: [
+      {
+        id: 0,
+        name: "Default"
+      }
+    ],
+    credits: 0,
+    group_auto_increment: 1
   };
   constructor() {
     try {
@@ -39,13 +47,14 @@ class Storage {
     return this.db.list && this.db.list.some(item => item.title === title);
   };
 
-  addListItem = (title, description, status = 1, importance) => {
+  addListItem = (title, description, status = 1, importance, group) => {
     this.db.list.push({
       time: (new Date().getTime() / 1000) | 0,
       title,
       description,
       status,
-      importance
+      importance,
+      group: Number.parseInt(group)
     });
     this.save();
   };
@@ -64,19 +73,52 @@ class Storage {
     this.save();
   };
 
-  allListItem = type => {
+  allListItem = ({ filter = "all", group = "all" }) => {
     let result = [];
     const relationReflection = {
       finished: item => item.status === 2,
       unfinished: item => item.status === 1 || item.status === 3
     };
-    if (type === "all") {
+
+    if (filter === "all") {
       result = this.db.list;
     } else {
-      result = this.db.list.filter(relationReflection[type]);
+      result = this.db.list.filter(relationReflection[filter]);
+    }
+
+    if (group !== "all") {
+      const compGroup = Number.parseInt(group);
+      result = this.db.list.filter(item => item.group === compGroup);
     }
     const answer = result.sort(($1, $2) => $2.importance - $1.importance);
     return answer;
+  };
+
+  allGroup = () => {
+    return this.db.group;
+  };
+
+  addGroup = title => {
+    this.db.group.push({
+      name: title,
+      id: this.db.group_auto_increment++
+    });
+    this.save();
+  };
+
+  deleteGroup = id => {
+    this.db.group = this.db.group.filter(item => item.id !== id);
+    this.db.list = this.db.list.filter(item => item.group !== id);
+    this.save();
+  };
+
+  groupName = id => {
+    if (id === "all") {
+      return "ALL";
+    } else {
+      const response = this.db.group[id].name || "Untitled";
+      return response;
+    }
   };
 
   addCredits = num => {
