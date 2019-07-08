@@ -1,1 +1,39 @@
-{"list":[{"time":1562419542,"title":"膜yzh大佬","description":"膜yzh大佬","status":2,"importance":5,"group":2},{"time":1562419525,"title":"不再膜yzh大佬了","description":"不再膜yzh大佬了","status":1,"importance":1,"group":1}],"group":[{"id":0,"name":"Default"},{"name":"yzhtql","id":1},{"name":"膜yzh大佬","id":2}],"credits":-10,"group_auto_increment":3}
+{
+  "list": [
+    {
+      "time": 1562551055,
+      "title": "完成沉底",
+      "description": "将完成的目标自动沉底，未完成的目标依旧按照重要性排序。",
+      "status": 1,
+      "importance": 5,
+      "group": 6
+    },
+    {
+      "time": 1562551093,
+      "title": "倒计时显示",
+      "description": "把倒计时从my挪到主页上",
+      "status": 1,
+      "importance": 5,
+      "group": 6
+    },
+    {
+      "time": 1562551319,
+      "title": "透明悬浮窗口",
+      "description": "把程序以透明悬浮窗口的形式悬浮在电脑桌面上",
+      "status": 1,
+      "importance": 5,
+      "group": 6
+    },
+    {
+      "time": 1562551453,
+      "title": "定时推送",
+      "description": "显示截至时间，并发送提醒",
+      "status": 1,
+      "importance": 5,
+      "group": 6
+    }
+  ],
+  "group": [{ "name": "魔改", "id": 6 }],
+  "credits": 20,
+  "group_auto_increment": 7
+}

@@ -107,8 +107,12 @@ class Storage {
   };
 
   deleteGroup = id => {
-    this.db.group = this.db.group.filter(item => item.id !== id);
-    this.db.list = this.db.list.filter(item => item.group !== id);
+    this.db.group = this.db.group.filter(
+      item => item.id !== Number.parseInt(id)
+    );
+    this.db.list = this.db.list.filter(
+      item => item.group !== Number.parseInt(id)
+    );
     this.save();
   };
 

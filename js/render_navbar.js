@@ -15,6 +15,15 @@ const handleNavBarClick = e => {
   }
 };
 
+const handleMouseDown = e => {
+  if (e.button === 2) {
+    const group = e.target.dataset.group;
+    if (group !== undefined && confirm("确定要删除这个组吗？这个组内的目标都将会被删除！")) {
+      stateIpcRender.send("del_group", group);
+    }
+  }
+};
+
 window.addEventListener("load", async () => {
   const content_wrapped = await fetch("./components/nav_bar.html");
   const content = await content_wrapped.text();
@@ -22,6 +31,7 @@ window.addEventListener("load", async () => {
   navIpcRender.send("all_group");
   const navUlDOM = document.querySelector("#nav_ul");
   navUlDOM.addEventListener("click", handleNavBarClick);
+  navUlDOM.addEventListener("mousedown", handleMouseDown);
 });
 
 navIpcRender.on("group_name:response", async (_event, args) => {
@@ -48,4 +58,9 @@ navIpcRender.on("all_group:response", async (_event, args) => {
     return prev;
   }, "");
   DOM.innerHTML = renderedHTML;
+});
+
+navIpcRender.on("del_group:response", async (_event, args) => {
+  setTimeout(() => alert("删除成功！"), 0);
+  location.reload();
 });
