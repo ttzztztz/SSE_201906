@@ -18,6 +18,25 @@
         My Credits:
         <span id="credits_show">0</span>
       </div>
+      <div id="showTime">
+      </br>
+        给自己设定一个倒计时吧
+          <form>
+            <input type="text" id="year"><span>年</span>
+            <input type="text" id="month"><span>月</span>
+            <input type="text" id="day"><span>日</span>
+            <input type="text" id="hour"><span>时</span>
+            <input type="text" id="minute"><span>分</span>
+            <input type="text" id="second"><span>秒</span>
+            <input type="button" id="确定" onclick="show()">
+        </form>
+        <div class="time1">还剩时间
+            <span id="1"></span>天
+            <span id="2"></span>时
+            <span id="3"></span>分
+            <span id="4"></span>秒
+        </div>
+      </div>
     </main>
     <script src="./js/jquery.min.js"></script>
     <script src="./js/popper.min.js"></script>
@@ -26,5 +45,6 @@
     <script src="./js/render_navbar.js"></script>
     <script src="./js/render_my.js"></script>
     <script src="./js/Username.js"></script>
+    <script src="./js/showTime.js"></script>
   </body>
 </html>
