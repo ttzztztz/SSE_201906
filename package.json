@@ -1,15 +1,17 @@
 {
-    "name": "SSE_201906",
-    "version": "1.0.0",
-    "main": "main.js",
-    "repository": "https://github.com/ttzztztz/SSE_201906.git",
-    "author": "ttzztztz <935319340@qq.com>",
-    "license": "MIT",
-    "scripts": {
-        "start": "electron ."
-    },
-    "dependencies": {
-        "electron": "^5.0.6",
-        "immutable": "^4.0.0-rc.12"
-    }
+  "name": "SSE_201906",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "https://github.com/ttzztztz/SSE_201906.git",
+  "author": "ttzztztz <935319340@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "packager": "electron-packager ./ goals --out ./dist --overwrite"
+  },
+  "dependencies": {
+    "electron": "^5.0.6",
+    "electron-packager": "^14.0.1",
+    "immutable": "^4.0.0-rc.12"
+  }
 }
