@@ -61,3 +61,12 @@ ipcMain.on("group_name", async (event, args) => {
   const response = storage.groupName(args);
   event.reply("group_name:response", response);
 });
+
+ipcMain.on("get_time", async (event, _args) => {
+  const response = storage.getTime()
+  event.reply("get_time:response", response);
+});
+ipcMain.on("set_time", async (event, args) => {
+  const response = storage.setTime(args);
+  event.reply("set_time:response", response);
+});

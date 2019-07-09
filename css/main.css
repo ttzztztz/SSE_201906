@@ -2,3 +2,7 @@ main {
   width: 65%;
   margin: 24px calc((50% + 32px) / 2);
 }
+.showTime {
+  margin-bottom: 36px;
+  margin-left: -42px;
+}

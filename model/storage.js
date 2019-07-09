@@ -19,7 +19,15 @@ class Storage {
       }
     ],
     credits: 0,
-    group_auto_increment: 1
+    group_auto_increment: 1,
+    time: {
+      y: 2019,
+      m: 8,
+      d: 1,
+      h: 12,
+      i: 0,
+      s: 0
+    }
   };
   constructor() {
     try {
@@ -90,7 +98,13 @@ class Storage {
       const compGroup = Number.parseInt(group);
       result = this.db.list.filter(item => item.group === compGroup);
     }
-    const answer = result.sort(($1, $2) => $2.importance - $1.importance);
+    const answer = result.sort(($1, $2) => {
+      if ($1.status !== $2.status) {
+        return $1.status - $2.status;
+      } else {
+        return $2.importance - $1.importance;
+      }
+    });
     return answer;
   };
 
@@ -131,6 +145,21 @@ class Storage {
   };
   getCredits = () => {
     return this.db.credits;
+  };
+
+  getTime = () => {
+    return this.db.time;
+  };
+  setTime = ({ y, m, d, h, i, s }) => {
+    this.db.time = {
+      y,
+      m,
+      d,
+      h,
+      i,
+      s
+    };
+    this.save();
   };
 }
 
